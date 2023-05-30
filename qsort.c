@@ -26,13 +26,14 @@ void swap(int arr[], int i, int j) {
 
 void qsort2(int arr[], int left, int right) {
   int i, j, pivot;
+  int n = right; // length of array
   if (left < right) {
     i = left;
     j = right+1;
     pivot = arr[left];
     do {
-      do {i++;} while (arr[i] < pivot);
-      do {j--;} while (arr[j] > pivot);
+      do {i++;} while (i < n && arr[i] < pivot);
+      do {j--;} while (j < n && arr[j] > pivot);
       if (i < j)
         swap(arr, i, j);
     } while (i < j);
